@@ -1,0 +1,9 @@
+torch 
+torchvision 
+torchaudio
+torch-geometric
+nilearn
+pandas 
+numpy
+matplotlib 
+scikit-learn
