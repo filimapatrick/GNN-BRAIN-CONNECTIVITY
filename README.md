@@ -211,6 +211,50 @@ pip install -r requirements.txt
 
 ---
 
+## ☁️ S3 Selective Download (OpenNeuro Subset)
+
+### 🧠 1. Set up AWS CLI (if not already)
+
+```bash
+pip install awscli
+```
+
+Check:
+
+```bash
+aws --version
+```
+
+### 📦 2. Create a local folder
+
+```bash
+mkdir ds000030_small
+cd ds000030_small
+```
+
+### 🔥 3. Download ONLY 5 subjects (recommended method)
+
+You can manually pick subjects, for example:
+
+* sub-10159
+* sub-10171
+* sub-10189
+* sub-10193
+* sub-10201
+
+### ⚡ Command (repeat for each subject)
+
+Option A: full subject (safe but bigger)
+
+```bash
+aws s3 cp --no-sign-request \
+s3://openneuro.org/ds000030/sub-10159/ \
+./sub-10159/ \
+--recursive
+```
+
+---
+
 ## ▶️ Usage
 
 ### 1. Preprocess data
