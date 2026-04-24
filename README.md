@@ -248,8 +248,8 @@ Option A: full subject (safe but bigger)
 
 ```bash
 aws s3 cp --no-sign-request \
-s3://openneuro.org/ds000030/sub-10159/ \
-./sub-10159/ \
+s3://openneuro.org/ds000030/sub-10189/func/ \
+./sub-10189/func/ \
 --recursive
 ```
 
@@ -266,10 +266,20 @@ python src/preprocess.py
 ### 2. Generate connectivity matrices
 
 ```bash id="run2"
-python src/connectivity.py
+ .venv/bin/python src/connectivity.py
 ```
 
 ### 3. Train baseline model
+
+Create labels file first (binary: 0/1):
+
+```bash
+# Auto-generated template after first train run:
+# data/processed/labels_template.csv
+#
+# Copy it to labels.csv and fill the label column.
+cp data/processed/labels_template.csv data/processed/labels.csv
+```
 
 ```bash id="run3"
 python src/train.py --model mlp
